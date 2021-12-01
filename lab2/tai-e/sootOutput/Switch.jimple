@@ -1,0 +1,198 @@
+class Switch extends java.lang.Object
+{
+
+    int switch1(int, int)
+    {
+        Switch this;
+        int x, y, a, temp$0, temp$1, temp$2, temp$3, temp$4, temp$5, temp$6, temp$7, temp$8, temp$9, temp$10;
+
+        this := @this: Switch;
+
+        x := @parameter0: int;
+
+        y := @parameter1: int;
+
+        a = 0;
+
+        goto label6;
+
+     label1:
+        nop;
+
+        temp$0 = a;
+
+        temp$1 = temp$0 - y;
+
+        a = temp$1;
+
+        goto label7;
+
+     label2:
+        nop;
+
+        temp$2 = a;
+
+        temp$3 = temp$2 + y;
+
+        a = temp$3;
+
+        goto label7;
+
+     label3:
+        nop;
+
+        temp$4 = a;
+
+        temp$5 = temp$4 * y;
+
+        a = temp$5;
+
+        goto label7;
+
+     label4:
+        nop;
+
+        temp$6 = a;
+
+        temp$7 = temp$6 / y;
+
+        a = temp$7;
+
+        goto label7;
+
+     label5:
+        nop;
+
+        temp$8 = a - 1;
+
+        a = temp$8;
+
+        goto label7;
+
+     label6:
+        nop;
+
+        nop;
+
+        tableswitch(x)
+        {
+            case 1: goto label1;
+            case 2: goto label2;
+            case 3: goto label3;
+            case 4: goto label4;
+            default: goto label5;
+        };
+
+     label7:
+        nop;
+
+        temp$9 = a;
+
+        temp$10 = temp$9 + x;
+
+        a = temp$10;
+
+        return a;
+    }
+
+    int switch2(int, int)
+    {
+        Switch this;
+        int x, y, a, temp$0, temp$1, temp$2, temp$3, temp$4, temp$5, temp$6, temp$7, temp$8, temp$9, temp$10;
+
+        this := @this: Switch;
+
+        x := @parameter0: int;
+
+        y := @parameter1: int;
+
+        a = 0;
+
+        goto label6;
+
+     label1:
+        nop;
+
+        temp$0 = a;
+
+        temp$1 = temp$0 - y;
+
+        a = temp$1;
+
+        goto label7;
+
+     label2:
+        nop;
+
+        temp$2 = a;
+
+        temp$3 = temp$2 + y;
+
+        a = temp$3;
+
+     label3:
+        nop;
+
+        temp$4 = a;
+
+        temp$5 = temp$4 * y;
+
+        a = temp$5;
+
+     label4:
+        nop;
+
+        temp$6 = a;
+
+        temp$7 = temp$6 / y;
+
+        a = temp$7;
+
+        goto label7;
+
+     label5:
+        nop;
+
+        temp$8 = a - 1;
+
+        a = temp$8;
+
+        goto label7;
+
+     label6:
+        nop;
+
+        nop;
+
+        tableswitch(x)
+        {
+            case 1: goto label1;
+            case 2: goto label2;
+            case 3: goto label3;
+            case 4: goto label4;
+            default: goto label5;
+        };
+
+     label7:
+        nop;
+
+        temp$9 = a;
+
+        temp$10 = temp$9 + x;
+
+        a = temp$10;
+
+        return a;
+    }
+
+    void <init>()
+    {
+        Switch this;
+
+        this := @this: Switch;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

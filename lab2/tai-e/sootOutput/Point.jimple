@@ -1,0 +1,46 @@
+class Point extends java.lang.Object
+{
+    public int x;
+    public int y;
+
+    int fieldNAC()
+    {
+        Point this, p, temp$0;
+        int temp$1, temp$2, temp$3, temp$4, temp$5;
+
+        this := @this: Point;
+
+        temp$0 = new Point;
+
+        specialinvoke temp$0.<Point: void <init>()>();
+
+        p = temp$0;
+
+        temp$1 = 2;
+
+        p.<Point: int x> = temp$1;
+
+        temp$2 = 3;
+
+        p.<Point: int y> = temp$2;
+
+        temp$3 = p.<Point: int x>;
+
+        temp$4 = p.<Point: int y>;
+
+        temp$5 = temp$3 + temp$4;
+
+        return temp$5;
+    }
+
+    void <init>()
+    {
+        Point this;
+
+        this := @this: Point;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

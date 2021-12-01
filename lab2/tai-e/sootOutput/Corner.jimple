@@ -1,0 +1,87 @@
+class Corner extends java.lang.Object
+{
+
+    void nonIntParameter(int, java.lang.String)
+    {
+        Corner this;
+        int x, temp$0;
+        java.lang.String s;
+
+        this := @this: Corner;
+
+        x := @parameter0: int;
+
+        s := @parameter1: java.lang.String;
+
+        temp$0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>(s);
+
+        x = temp$0;
+
+        return;
+    }
+
+    void nulllLValue()
+    {
+        Corner this;
+        java.lang.String s;
+        int temp$0;
+
+        this := @this: Corner;
+
+        s = "abc";
+
+        temp$0 = virtualinvoke s.<java.lang.String: int length()>();
+
+        return;
+    }
+
+    void rValueInvoke()
+    {
+        Corner this;
+        int a, temp$0, temp$1, temp$2;
+        java.lang.String s;
+
+        this := @this: Corner;
+
+        a = 0;
+
+        s = "abc";
+
+        temp$0 = virtualinvoke s.<java.lang.String: int length()>();
+
+        a = temp$0;
+
+        temp$1 = a;
+
+        temp$2 = temp$1 + 1;
+
+        a = temp$2;
+
+        return;
+    }
+
+    java.lang.String lValueObject()
+    {
+        Corner this;
+        java.lang.String s, temp$0;
+
+        this := @this: Corner;
+
+        temp$0 = "abc";
+
+        s = temp$0;
+
+        return s;
+    }
+
+    void <init>()
+    {
+        Corner this;
+
+        this := @this: Corner;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

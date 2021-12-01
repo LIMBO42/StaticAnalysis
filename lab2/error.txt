@@ -1,0 +1,350 @@
+-------------------- Error Messages --------------------
+Source code of Array.java, for which your analysis failed:
+class Array {
+
+    int arrayNAC() {
+        int iarr[] = { 1, 2, 3 };
+        iarr[1] = 5;
+        return iarr[0] + iarr[1] + iarr[2];
+    }
+
+}
+Error: your analysis has "java.lang.ClassCastException" for Array.java
+
+Expected results of <Array: void <init>()>:
+[0@L1] invokespecial %this.<java.lang.Object: void <init>()>(); {}
+[1@L1] return; {}
+
+Expected results of <Array: int arrayNAC()>:
+[0@L4] %intconst0 = 3; {%intconst0=3}
+[1@L4] temp$0 = newarray (int)[%intconst0]; {%intconst0=3}
+[2@L4] %intconst1 = 0; {%intconst0=3, %intconst1=0}
+[3@L4] %intconst2 = 1; {%intconst0=3, %intconst1=0, %intconst2=1}
+[4@L4] temp$0[%intconst1] = %intconst2; {%intconst0=3, %intconst1=0, %intconst2=1}
+[5@L4] %intconst3 = 2; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2}
+[6@L4] temp$0[%intconst2] = %intconst3; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2}
+[7@L4] temp$0[%intconst3] = %intconst0; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2}
+[8@L4] iarr = temp$0; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2}
+[9@L5] temp$2 = 1; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$2=1}
+[10@L5] temp$3 = 5; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$2=1, temp$3=5}
+[11@L5] iarr[temp$2] = temp$3; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$2=1, temp$3=5}
+[12@L5] temp$5 = 0; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$2=1, temp$3=5, temp$5=0}
+[13@L5] temp$6 = iarr[temp$5]; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$2=1, temp$3=5, temp$5=0, temp$6=NAC}
+[14@L5] temp$8 = 1; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$2=1, temp$3=5, temp$5=0, temp$6=NAC, temp$8=1}
+[15@L5] temp$9 = iarr[temp$8]; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$2=1, temp$3=5, temp$5=0, temp$6=NAC, temp$8=1, temp$9=NAC}
+[16@L5] temp$12 = 2; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$12=2, temp$2=1, temp$3=5, temp$5=0, temp$6=NAC, temp$8=1, temp$9=NAC}
+[17@L5] temp$13 = iarr[temp$12]; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$12=2, temp$13=NAC, temp$2=1, temp$3=5, temp$5=0, temp$6=NAC, temp$8=1, temp$9=NAC}
+[18@L5] temp$10 = temp$6 + temp$9; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$10=NAC, temp$12=2, temp$13=NAC, temp$2=1, temp$3=5, temp$5=0, temp$6=NAC, temp$8=1, temp$9=NAC}
+[19@L5] temp$14 = temp$10 + temp$13; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$10=NAC, temp$12=2, temp$13=NAC, temp$14=NAC, temp$2=1, temp$3=5, temp$5=0, temp$6=NAC, temp$8=1, temp$9=NAC}
+[20@L6] return temp$14; {%intconst0=3, %intconst1=0, %intconst2=1, %intconst3=2, temp$10=NAC, temp$12=2, temp$13=NAC, temp$14=NAC, temp$2=1, temp$3=5, temp$5=0, temp$6=NAC, temp$8=1, temp$9=NAC}
+
+==================================================
+Source code of Corner.java, for which your analysis failed:
+class Corner{
+    void nonIntParameter(int x, String s) {
+        x = Integer.parseInt(s);
+    }
+
+    void nulllLValue(){
+        String s = "abc";
+        s.length();
+    }
+
+    void rValueInvoke(){
+        int a = 0;
+        String s = "abc";
+        a = s.length();
+        a = a+1;
+    }
+
+    String lValueObject(){
+        String s;
+        s = "abc";
+        return s;
+    }
+
+}
+------ Failure on <Corner: void rValueInvoke()> -----
+Expected: [5@L15] a = a + %intconst0; {%intconst0=1, a=NAC, temp$0=NAC}
+Given   : [5@L15] a = a + %intconst0; {%intconst0=1, a=UNDEF, temp$0=NAC}
+
+Expected: [6@L15] return; {%intconst0=1, a=NAC, temp$0=NAC}
+Given   : [6@L15] return; {%intconst0=1, a=UNDEF, temp$0=NAC}
+
+==================================================
+Source code of DivisionByZero.java, for which your analysis failed:
+class DivisionByZero {
+
+    void divideNACByZero(int p) {
+        int zero = 0;
+        int undef1 = p / zero;
+        int undef2 = p % zero;
+    }
+
+    void divideConstantByZero() {
+        int one = 1;
+        int zero = 0;
+        int undef1 = one / zero;
+        int undef2 = one % zero;
+    }
+}
+
+------ Failure on <DivisionByZero: void divideNACByZero(int)> -----
+Expected: [1@L5] undef1 = p / zero; {p=NAC, undef1=UNDEF, zero=0}
+Given   : [1@L5] undef1 = p / zero; {p=NAC, undef1=NAC, zero=0}
+
+Expected: [2@L6] undef2 = p % zero; {p=NAC, undef1=UNDEF, undef2=UNDEF, zero=0}
+Given   : [2@L6] undef2 = p % zero; {p=NAC, undef1=NAC, undef2=NAC, zero=0}
+
+Expected: [3@L6] return; {p=NAC, undef1=UNDEF, undef2=UNDEF, zero=0}
+Given   : [3@L6] return; {p=NAC, undef1=NAC, undef2=NAC, zero=0}
+
+==================================================
+Source code of Loop.java, for which your analysis failed:
+class Loop {
+    void whileConstant() {
+        int a, b = 1, c = 1;
+        int i = 0;
+        while (i < 10) {
+            a = b;
+            b = c;
+            c = 1;
+            ++i;
+        }
+    }
+
+    void whileNAC() {
+        int a, b = 0, c = 0;
+        int i = 0;
+        while (i < 10) {
+            a = b;
+            b = c;
+            c = 1;
+            ++i;
+        }
+    }
+
+    void whileUndefinedConstant() {
+        int a, b, c;
+        int i = 0;
+        while (i < 10) {
+            a = b;
+            b = c;
+            c = 1;
+            ++i;
+        }
+    }
+}
+
+------ Failure on <Loop: void whileConstant()> -----
+Expected: [3@L4] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [3@L4] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [4@L5] %intconst0 = 10; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [4@L5] %intconst0 = 10; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [5@L5] if (i < %intconst0) goto 7; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [5@L5] if (i < %intconst0) goto 7; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [6@L5] goto 14; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [6@L5] goto 14; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [7@L5] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [7@L5] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [8@L6] a = b; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [8@L6] a = b; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [9@L7] b = c; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [9@L7] b = c; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [10@L8] c = 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [10@L8] c = 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [11@L9] %intconst1 = 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [11@L9] %intconst1 = 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [12@L9] i = i + %intconst1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [12@L9] i = i + %intconst1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=UNDEF}
+
+Expected: [13@L5] goto 3; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [13@L5] goto 3; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=UNDEF}
+
+Expected: [14@L5] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [14@L5] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [15@L5] return; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [15@L5] return; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+------ Failure on <Loop: void whileNAC()> -----
+Expected: [3@L15] nop; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=NAC}
+Given   : [3@L15] nop; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=0}
+
+Expected: [4@L16] %intconst0 = 10; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=NAC}
+Given   : [4@L16] %intconst0 = 10; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=0}
+
+Expected: [5@L16] if (i < %intconst0) goto 7; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=NAC}
+Given   : [5@L16] if (i < %intconst0) goto 7; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=0}
+
+Expected: [6@L16] goto 14; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=NAC}
+Given   : [6@L16] goto 14; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=0}
+
+Expected: [7@L16] nop; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=NAC}
+Given   : [7@L16] nop; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=0}
+
+Expected: [8@L17] a = b; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=NAC}
+Given   : [8@L17] a = b; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=0}
+
+Expected: [9@L18] b = c; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=NAC}
+Given   : [9@L18] b = c; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=0}
+
+Expected: [10@L19] c = 1; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=1, i=NAC}
+Given   : [10@L19] c = 1; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=1, i=0}
+
+Expected: [11@L20] %intconst1 = 1; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=1, i=NAC}
+Given   : [11@L20] %intconst1 = 1; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=1, i=0}
+
+Expected: [12@L20] i = i + %intconst1; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=1, i=NAC}
+Given   : [12@L20] i = i + %intconst1; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=1, i=UNDEF}
+
+Expected: [13@L16] goto 3; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=1, i=NAC}
+Given   : [13@L16] goto 3; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=1, i=UNDEF}
+
+Expected: [14@L16] nop; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=NAC}
+Given   : [14@L16] nop; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=0}
+
+Expected: [15@L16] return; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=NAC}
+Given   : [15@L16] return; {%intconst0=10, %intconst1=1, a=NAC, b=NAC, c=NAC, i=0}
+
+------ Failure on <Loop: void whileUndefinedConstant()> -----
+Expected: [1@L26] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [1@L26] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [2@L27] %intconst0 = 10; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [2@L27] %intconst0 = 10; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [3@L27] if (i < %intconst0) goto 5; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [3@L27] if (i < %intconst0) goto 5; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [4@L27] goto 12; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [4@L27] goto 12; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [5@L27] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [5@L27] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [6@L28] a = b; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [6@L28] a = b; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [7@L29] b = c; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [7@L29] b = c; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [8@L30] c = 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [8@L30] c = 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [9@L31] %intconst1 = 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [9@L31] %intconst1 = 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [10@L31] i = i + %intconst1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [10@L31] i = i + %intconst1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=UNDEF}
+
+Expected: [11@L27] goto 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [11@L27] goto 1; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=UNDEF}
+
+Expected: [12@L27] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [12@L27] nop; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+Expected: [13@L27] return; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=NAC}
+Given   : [13@L27] return; {%intconst0=10, %intconst1=1, a=1, b=1, c=1, i=0}
+
+==================================================
+Source code of Point.java, for which your analysis failed:
+class Point {
+    public int x;
+    public int y;
+
+    int fieldNAC() {
+        Point p = new Point();
+        p.x = 2;
+        p.y = 3;
+        return p.x + p.y;
+    }
+}
+Error: your analysis has "java.lang.ClassCastException" for Point.java
+
+Expected results of <Point: void <init>()>:
+[0@L1] invokespecial %this.<java.lang.Object: void <init>()>(); {}
+[1@L1] return; {}
+
+Expected results of <Point: int fieldNAC()>:
+[0@L6] temp$0 = new Point; {}
+[1@L6] invokespecial temp$0.<Point: void <init>()>(); {}
+[2@L6] p = temp$0; {}
+[3@L7] temp$1 = 2; {temp$1=2}
+[4@L7] p.<Point: int x> = temp$1; {temp$1=2}
+[5@L8] temp$2 = 3; {temp$1=2, temp$2=3}
+[6@L8] p.<Point: int y> = temp$2; {temp$1=2, temp$2=3}
+[7@L8] temp$3 = p.<Point: int x>; {temp$1=2, temp$2=3, temp$3=NAC}
+[8@L8] temp$4 = p.<Point: int y>; {temp$1=2, temp$2=3, temp$3=NAC, temp$4=NAC}
+[9@L8] temp$5 = temp$3 + temp$4; {temp$1=2, temp$2=3, temp$3=NAC, temp$4=NAC, temp$5=NAC}
+[10@L9] return temp$5; {temp$1=2, temp$2=3, temp$3=NAC, temp$4=NAC, temp$5=NAC}
+
+==================================================
+Source code of Switch.java, for which your analysis failed:
+class Switch{
+    int switch1(int x, int y){
+        int a = 0;
+        switch(x){
+            case 1:
+                a-=y;
+                break;
+            case 2:
+                a+=y;
+                break;
+            case 3:
+                a*=y;
+                break;
+            case 4:
+                a/=y;
+                break;
+            default:
+                a = a-1;
+        }
+        a = a+x;
+        return a;
+    }
+
+    int switch2(int x, int y){
+        int a = 0;
+        switch(x){
+            case 1:
+                a-=y;
+                break;
+            case 2:
+                a+=y;
+            case 3:
+                a*=y;
+            case 4:
+                a/=y;
+                break;
+            default:
+                a = a-1;
+        }
+        a = a+x;
+        return a;
+    }
+}
+------ Failure on <Switch: int switch1(int,int)> -----
+Expected: [16@L18] a = a - %intconst0; {%intconst0=1, a=-1, x=NAC, y=NAC}
+Given   : [16@L18] a = a - %intconst0; {%intconst0=1, a=UNDEF, x=NAC, y=NAC}
+
+Expected: [17@L4] goto 21; {%intconst0=1, a=-1, x=NAC, y=NAC}
+Given   : [17@L4] goto 21; {%intconst0=1, a=UNDEF, x=NAC, y=NAC}
+
+------ Failure on <Switch: int switch2(int,int)> -----
+Expected: [14@L38] a = a - %intconst0; {%intconst0=1, a=-1, x=NAC, y=NAC}
+Given   : [14@L38] a = a - %intconst0; {%intconst0=1, a=UNDEF, x=NAC, y=NAC}
+
+Expected: [15@L26] goto 19; {%intconst0=1, a=-1, x=NAC, y=NAC}
+Given   : [15@L26] goto 19; {%intconst0=1, a=UNDEF, x=NAC, y=NAC}
+
+==================================================

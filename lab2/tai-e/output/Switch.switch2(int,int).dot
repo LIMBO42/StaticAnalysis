@@ -1,0 +1,58 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: a = 0";
+  "1: goto 16";
+  "2: nop";
+  "3: a = a - y";
+  "4: goto 19";
+  "5: nop";
+  "6: a = a + y";
+  "7: nop";
+  "8: a = a * y";
+  "9: nop";
+  "10: a = a / y";
+  "11: goto 19";
+  "12: nop";
+  "13: %intconst0 = 1";
+  "14: a = a - %intconst0";
+  "15: goto 19";
+  "16: nop";
+  "17: nop";
+  "18: tableswitch (x) {1->2, 2->5, 3->7, 4->9, default->12}";
+  "19: nop";
+  "20: a = a + x";
+  "21: return a";
+  "Exit";
+  "Entry" -> "0: a = 0" [label="ENTRY"];
+  "0: a = 0" -> "1: goto 16" [label="FALL_THROUGH"];
+  "1: goto 16" -> "16: nop" [label="GOTO"];
+  "2: nop" -> "3: a = a - y" [label="FALL_THROUGH"];
+  "3: a = a - y" -> "4: goto 19" [label="FALL_THROUGH"];
+  "4: goto 19" -> "19: nop" [label="GOTO"];
+  "5: nop" -> "6: a = a + y" [label="FALL_THROUGH"];
+  "6: a = a + y" -> "7: nop" [label="FALL_THROUGH"];
+  "7: nop" -> "8: a = a * y" [label="FALL_THROUGH"];
+  "8: a = a * y" -> "9: nop" [label="FALL_THROUGH"];
+  "9: nop" -> "10: a = a / y" [label="FALL_THROUGH"];
+  "10: a = a / y" -> "11: goto 19" [label="FALL_THROUGH"];
+  "11: goto 19" -> "19: nop" [label="GOTO"];
+  "12: nop" -> "13: %intconst0 = 1" [label="FALL_THROUGH"];
+  "13: %intconst0 = 1" -> "14: a = a - %intconst0" [label="FALL_THROUGH"];
+  "14: a = a - %intconst0" -> "15: goto 19" [label="FALL_THROUGH"];
+  "15: goto 19" -> "19: nop" [label="GOTO"];
+  "16: nop" -> "17: nop" [label="FALL_THROUGH"];
+  "17: nop" -> "18: tableswitch (x) {1->2, 2->5, 3->7, 4->9, default->12}" [label="FALL_THROUGH"];
+  "18: tableswitch (x) {1->2, 2->5, 3->7, 4->9, default->12}" -> "2: nop" [label="SWITCH_CASE
+[case 1]"];
+  "18: tableswitch (x) {1->2, 2->5, 3->7, 4->9, default->12}" -> "5: nop" [label="SWITCH_CASE
+[case 2]"];
+  "18: tableswitch (x) {1->2, 2->5, 3->7, 4->9, default->12}" -> "7: nop" [label="SWITCH_CASE
+[case 3]"];
+  "18: tableswitch (x) {1->2, 2->5, 3->7, 4->9, default->12}" -> "9: nop" [label="SWITCH_CASE
+[case 4]"];
+  "18: tableswitch (x) {1->2, 2->5, 3->7, 4->9, default->12}" -> "12: nop" [label="SWITCH_DEFAULT"];
+  "19: nop" -> "20: a = a + x" [label="FALL_THROUGH"];
+  "20: a = a + x" -> "21: return a" [label="FALL_THROUGH"];
+  "21: return a" -> "Exit" [label="RETURN"];
+}

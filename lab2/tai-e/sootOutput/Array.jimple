@@ -1,0 +1,30 @@
+class Array extends java.lang.Object
+{
+
+    static int foo()
+    {
+        int x;
+
+        x = 1;
+
+        return x;
+
+        staticinvoke <Array: void dead()>();
+    }
+
+    static void dead()
+    {
+        return;
+    }
+
+    void <init>()
+    {
+        Array this;
+
+        this := @this: Array;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

@@ -1,0 +1,10 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: s = \"abc\"";
+  "1: return s";
+  "Exit";
+  "Entry" -> "0: s = \"abc\"" [label="ENTRY"];
+  "0: s = \"abc\"" -> "1: return s" [label="FALL_THROUGH"];
+  "1: return s" -> "Exit" [label="RETURN"];
+}

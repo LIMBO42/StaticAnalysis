@@ -1,0 +1,14 @@
+optionsFile: null
+printHelp: false
+javaVersion: 15
+prependJVM: true
+classPath: src/test/resources/dataflow/livevar
+mainClass: DeadAssignment
+worldBuilderClass: pascal.taie.frontend.soot.SootWorldBuilder
+preBuildIR: false
+scope: app
+nativeModel: true
+dumpClasses: false
+planFile: D:\learning_files\master_study\master1\staticAnalysis\lab1\WU_FILE_0\tai-e\plan.yml
+analyses: {}
+onlyGenPlan: false

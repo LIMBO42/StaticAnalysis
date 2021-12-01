@@ -1,0 +1,22 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: x = 1";
+  "1: %intconst0 = 2";
+  "2: y = x + %intconst0";
+  "3: %intconst1 = 3";
+  "4: z = x + %intconst1";
+  "5: invokevirtual %this.use(z)@<DeadAssignment: void deadAssign()>:5(@L7)";
+  "6: a = x";
+  "7: return";
+  "Exit";
+  "Entry" -> "0: x = 1" [label="ENTRY"];
+  "0: x = 1" -> "1: %intconst0 = 2" [label="FALL_THROUGH"];
+  "1: %intconst0 = 2" -> "2: y = x + %intconst0" [label="FALL_THROUGH"];
+  "2: y = x + %intconst0" -> "3: %intconst1 = 3" [label="FALL_THROUGH"];
+  "3: %intconst1 = 3" -> "4: z = x + %intconst1" [label="FALL_THROUGH"];
+  "4: z = x + %intconst1" -> "5: invokevirtual %this.use(z)@<DeadAssignment: void deadAssign()>:5(@L7)" [label="FALL_THROUGH"];
+  "5: invokevirtual %this.use(z)@<DeadAssignment: void deadAssign()>:5(@L7)" -> "6: a = x" [label="FALL_THROUGH"];
+  "6: a = x" -> "7: return" [label="FALL_THROUGH"];
+  "7: return" -> "Exit" [label="RETURN"];
+}

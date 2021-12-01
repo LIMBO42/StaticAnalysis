@@ -1,0 +1,10 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: invokespecial %this.<init>()@<Assign: void <init>()>:0(@L1)";
+  "1: return";
+  "Exit";
+  "Entry" -> "0: invokespecial %this.<init>()@<Assign: void <init>()>:0(@L1)" [label="ENTRY"];
+  "0: invokespecial %this.<init>()@<Assign: void <init>()>:0(@L1)" -> "1: return" [label="FALL_THROUGH"];
+  "1: return" -> "Exit" [label="RETURN"];
+}

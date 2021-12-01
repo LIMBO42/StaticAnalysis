@@ -1,0 +1,12 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: s = \"abc\"";
+  "1: temp$0 = invokevirtual s.length()@<Corner: void nulllLValue()>:1(@L8)";
+  "2: return";
+  "Exit";
+  "Entry" -> "0: s = \"abc\"" [label="ENTRY"];
+  "0: s = \"abc\"" -> "1: temp$0 = invokevirtual s.length()@<Corner: void nulllLValue()>:1(@L8)" [label="FALL_THROUGH"];
+  "1: temp$0 = invokevirtual s.length()@<Corner: void nulllLValue()>:1(@L8)" -> "2: return" [label="FALL_THROUGH"];
+  "2: return" -> "Exit" [label="RETURN"];
+}

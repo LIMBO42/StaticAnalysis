@@ -1,0 +1,11 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: x = 1";
+  "1: return x";
+  "2: invokestatic Array.dead()@<Array: int foo()>:2(@L6)";
+  "Exit";
+  "Entry" -> "0: x = 1" [label="ENTRY"];
+  "0: x = 1" -> "1: return x" [label="FALL_THROUGH"];
+  "1: return x" -> "Exit" [label="RETURN"];
+}

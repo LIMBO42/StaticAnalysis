@@ -1,0 +1,20 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: a = 0";
+  "1: s = \"abc\"";
+  "2: temp$0 = invokevirtual s.length()@<Corner: void rValueInvoke()>:2(@L14)";
+  "3: a = temp$0";
+  "4: %intconst0 = 1";
+  "5: a = a + %intconst0";
+  "6: return";
+  "Exit";
+  "Entry" -> "0: a = 0" [label="ENTRY"];
+  "0: a = 0" -> "1: s = \"abc\"" [label="FALL_THROUGH"];
+  "1: s = \"abc\"" -> "2: temp$0 = invokevirtual s.length()@<Corner: void rValueInvoke()>:2(@L14)" [label="FALL_THROUGH"];
+  "2: temp$0 = invokevirtual s.length()@<Corner: void rValueInvoke()>:2(@L14)" -> "3: a = temp$0" [label="FALL_THROUGH"];
+  "3: a = temp$0" -> "4: %intconst0 = 1" [label="FALL_THROUGH"];
+  "4: %intconst0 = 1" -> "5: a = a + %intconst0" [label="FALL_THROUGH"];
+  "5: a = a + %intconst0" -> "6: return" [label="FALL_THROUGH"];
+  "6: return" -> "Exit" [label="RETURN"];
+}

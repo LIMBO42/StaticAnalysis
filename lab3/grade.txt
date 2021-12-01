@@ -1,0 +1,41 @@
+Grade of assignments\A3\submissions\: 98.0 points
+Analyze 40 methods, pass 39 methods
+
+There are 100 dead Stmts in all test cases
+Your submission correctly detects 100 dead Stmts
+#false negatives: 0
+#false positives: 4
+
+-------------------- Error Messages --------------------
+Source code of ForLoops.java, for which your analysis failed:
+class ForLoops {
+
+    void dead1() {
+        int m = 0;
+        int y = 2;
+        for (int i = 0; i < m; ++i) {
+            use(y);
+            return;
+        }
+        use(y)
+    }
+
+    void dead2() {
+        int m = 0;
+        int y = 2;
+        for (int i = 0; i >= m; ++i) {
+            use(y);
+            return;
+        }
+        use(y)
+    }
+
+    void use(int x) {
+    }
+}
+------ Failure on <ForLoops: void dead1()> -----
+False positive: [4@L6] if (i < m) goto 6;
+False positive: [13@L6] nop;
+False positive: [14@L10] invokevirtual %this.<ForLoops: void use(int)>(y);
+False positive: [15@L10] return;
+==================================================

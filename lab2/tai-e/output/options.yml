@@ -1,0 +1,17 @@
+optionsFile: null
+printHelp: false
+javaVersion: 15
+prependJVM: true
+classPath: src/test/resources/dataflow/constprop/
+mainClass: Interprocedural
+worldBuilderClass: pascal.taie.frontend.soot.SootWorldBuilder
+preBuildIR: false
+scope: app
+nativeModel: true
+dumpClasses: false
+planFile: null
+analyses:
+  constprop: edge-transfer:false
+  process-result: "analyses:[constprop];action:compare;file:src\\test\\resources\\\
+    dataflow\\constprop\\Interprocedural-expected.txt"
+onlyGenPlan: false

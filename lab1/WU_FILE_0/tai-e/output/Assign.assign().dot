@@ -1,0 +1,18 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: a = 0";
+  "1: a = 1";
+  "2: %intconst0 = 2";
+  "3: b = a * %intconst0";
+  "4: c = 3";
+  "5: return c";
+  "Exit";
+  "Entry" -> "0: a = 0" [label="ENTRY"];
+  "0: a = 0" -> "1: a = 1" [label="FALL_THROUGH"];
+  "1: a = 1" -> "2: %intconst0 = 2" [label="FALL_THROUGH"];
+  "2: %intconst0 = 2" -> "3: b = a * %intconst0" [label="FALL_THROUGH"];
+  "3: b = a * %intconst0" -> "4: c = 3" [label="FALL_THROUGH"];
+  "4: c = 3" -> "5: return c" [label="FALL_THROUGH"];
+  "5: return c" -> "Exit" [label="RETURN"];
+}

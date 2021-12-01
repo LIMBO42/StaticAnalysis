@@ -1,0 +1,14 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: zero = 0";
+  "1: undef1 = p / zero";
+  "2: undef2 = p % zero";
+  "3: return";
+  "Exit";
+  "Entry" -> "0: zero = 0" [label="ENTRY"];
+  "0: zero = 0" -> "1: undef1 = p / zero" [label="FALL_THROUGH"];
+  "1: undef1 = p / zero" -> "2: undef2 = p % zero" [label="FALL_THROUGH"];
+  "2: undef2 = p % zero" -> "3: return" [label="FALL_THROUGH"];
+  "3: return" -> "Exit" [label="RETURN"];
+}

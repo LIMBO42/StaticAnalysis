@@ -1,0 +1,28 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: temp$0 = new Point";
+  "1: invokespecial temp$0.<init>()@<Point: int fieldNAC()>:1(@L6)";
+  "2: p = temp$0";
+  "3: temp$1 = 2";
+  "4: p.<Point: int x> = temp$1";
+  "5: temp$2 = 3";
+  "6: p.<Point: int y> = temp$2";
+  "7: temp$3 = p.<Point: int x>";
+  "8: temp$4 = p.<Point: int y>";
+  "9: temp$5 = temp$3 + temp$4";
+  "10: return temp$5";
+  "Exit";
+  "Entry" -> "0: temp$0 = new Point" [label="ENTRY"];
+  "0: temp$0 = new Point" -> "1: invokespecial temp$0.<init>()@<Point: int fieldNAC()>:1(@L6)" [label="FALL_THROUGH"];
+  "1: invokespecial temp$0.<init>()@<Point: int fieldNAC()>:1(@L6)" -> "2: p = temp$0" [label="FALL_THROUGH"];
+  "2: p = temp$0" -> "3: temp$1 = 2" [label="FALL_THROUGH"];
+  "3: temp$1 = 2" -> "4: p.<Point: int x> = temp$1" [label="FALL_THROUGH"];
+  "4: p.<Point: int x> = temp$1" -> "5: temp$2 = 3" [label="FALL_THROUGH"];
+  "5: temp$2 = 3" -> "6: p.<Point: int y> = temp$2" [label="FALL_THROUGH"];
+  "6: p.<Point: int y> = temp$2" -> "7: temp$3 = p.<Point: int x>" [label="FALL_THROUGH"];
+  "7: temp$3 = p.<Point: int x>" -> "8: temp$4 = p.<Point: int y>" [label="FALL_THROUGH"];
+  "8: temp$4 = p.<Point: int y>" -> "9: temp$5 = temp$3 + temp$4" [label="FALL_THROUGH"];
+  "9: temp$5 = temp$3 + temp$4" -> "10: return temp$5" [label="FALL_THROUGH"];
+  "10: return temp$5" -> "Exit" [label="RETURN"];
+}

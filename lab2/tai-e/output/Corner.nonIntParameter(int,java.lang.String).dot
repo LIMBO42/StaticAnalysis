@@ -1,0 +1,14 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: temp$0 = invokestatic java.lang.Integer.parseInt(s)@<Corner: void nonIntParameter(int,java.lang.String)>:0(@L3)";
+  "1: x = temp$0";
+  "2: return";
+  "Exit";
+  "Entry" -> "0: temp$0 = invokestatic java.lang.Integer.parseInt(s)@<Corner: void nonIntParameter(int,java.lang.String)>:0(@L3)" [label="ENTRY"];
+  "0: temp$0 = invokestatic java.lang.Integer.parseInt(s)@<Corner: void nonIntParameter(int,java.lang.String)>:0(@L3)" -> "1: x = temp$0" [label="FALL_THROUGH"];
+  "0: temp$0 = invokestatic java.lang.Integer.parseInt(s)@<Corner: void nonIntParameter(int,java.lang.String)>:0(@L3)" -> "Exit" [label="UNCAUGHT_EXCEPTION
+[NumberFormatException]",color=red];
+  "1: x = temp$0" -> "2: return" [label="FALL_THROUGH"];
+  "2: return" -> "Exit" [label="RETURN"];
+}

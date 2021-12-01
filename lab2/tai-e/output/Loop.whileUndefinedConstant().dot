@@ -1,0 +1,35 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: i = 0";
+  "1: nop";
+  "2: %intconst0 = 10";
+  "3: if (i < %intconst0) goto 5";
+  "4: goto 12";
+  "5: nop";
+  "6: a = b";
+  "7: b = c";
+  "8: c = 1";
+  "9: %intconst1 = 1";
+  "10: i = i + %intconst1";
+  "11: goto 1";
+  "12: nop";
+  "13: return";
+  "Exit";
+  "Entry" -> "0: i = 0" [label="ENTRY"];
+  "0: i = 0" -> "1: nop" [label="FALL_THROUGH"];
+  "1: nop" -> "2: %intconst0 = 10" [label="FALL_THROUGH"];
+  "2: %intconst0 = 10" -> "3: if (i < %intconst0) goto 5" [label="FALL_THROUGH"];
+  "3: if (i < %intconst0) goto 5" -> "5: nop" [label="IF_TRUE"];
+  "3: if (i < %intconst0) goto 5" -> "4: goto 12" [label="IF_FALSE"];
+  "4: goto 12" -> "12: nop" [label="GOTO"];
+  "5: nop" -> "6: a = b" [label="FALL_THROUGH"];
+  "6: a = b" -> "7: b = c" [label="FALL_THROUGH"];
+  "7: b = c" -> "8: c = 1" [label="FALL_THROUGH"];
+  "8: c = 1" -> "9: %intconst1 = 1" [label="FALL_THROUGH"];
+  "9: %intconst1 = 1" -> "10: i = i + %intconst1" [label="FALL_THROUGH"];
+  "10: i = i + %intconst1" -> "11: goto 1" [label="FALL_THROUGH"];
+  "11: goto 1" -> "1: nop" [label="GOTO"];
+  "12: nop" -> "13: return" [label="FALL_THROUGH"];
+  "13: return" -> "Exit" [label="RETURN"];
+}

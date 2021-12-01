@@ -1,0 +1,58 @@
+class DivisionByZero extends java.lang.Object
+{
+
+    void divideNACByZero(int)
+    {
+        DivisionByZero this;
+        int p, zero, undef1, temp$0, undef2, temp$1;
+
+        this := @this: DivisionByZero;
+
+        p := @parameter0: int;
+
+        zero = 0;
+
+        temp$0 = p / zero;
+
+        undef1 = temp$0;
+
+        temp$1 = p % zero;
+
+        undef2 = temp$1;
+
+        return;
+    }
+
+    void divideConstantByZero()
+    {
+        DivisionByZero this;
+        int one, zero, undef1, temp$0, undef2, temp$1;
+
+        this := @this: DivisionByZero;
+
+        one = 1;
+
+        zero = 0;
+
+        temp$0 = one / zero;
+
+        undef1 = temp$0;
+
+        temp$1 = one % zero;
+
+        undef2 = temp$1;
+
+        return;
+    }
+
+    void <init>()
+    {
+        DivisionByZero this;
+
+        this := @this: DivisionByZero;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

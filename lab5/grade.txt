@@ -1,0 +1,5 @@
+Grade of assignmentsA5submissions 100.0 points
+
+Your submission correctly analyzes 700 out of 700 pointers in test cases.
+
+Congratulations!
