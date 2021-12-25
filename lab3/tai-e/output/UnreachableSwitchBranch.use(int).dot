@@ -1,8 +1,0 @@
-digraph G {
-  node [style=filled,color=".3 .2 1.0",shape=box,];
-  "Entry";
-  "0: return";
-  "Exit";
-  "Entry" -> "0: return" [label="ENTRY",];
-  "0: return" -> "Exit" [label="RETURN",];
-}

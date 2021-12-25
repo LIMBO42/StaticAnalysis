@@ -1,5 +1,0 @@
-interface  Number extends java.lang.Object
-{
-
-    public abstract int get();
-}
