@@ -1,0 +1,130 @@
+class StaticFieldMultiStores extends java.lang.Object
+{
+    static int f;
+    static int g;
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        int x, y;
+
+        args := @parameter0: java.lang.String[];
+
+        staticinvoke <StaticFieldMultiStores: void storeConst()>();
+
+        staticinvoke <StaticFieldMultiStores: void storeNAC()>();
+
+        x = <StaticFieldMultiStores: int f>;
+
+        y = <StaticFieldMultiStores: int g>;
+
+        return;
+    }
+
+    static void storeConst()
+    {
+        int temp$0, temp$1, temp$2;
+
+        temp$0 = staticinvoke <StaticFieldMultiStores: int getNAC()>();
+
+        if temp$0 > 0 goto label1;
+
+        goto label2;
+
+     label1:
+        nop;
+
+        temp$1 = 555;
+
+        <StaticFieldMultiStores: int f> = temp$1;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$2 = 555;
+
+        <StaticFieldMultiStores: int f> = temp$2;
+
+     label3:
+        nop;
+
+        return;
+    }
+
+    static void storeNAC()
+    {
+        int temp$0, temp$1, temp$2;
+
+        temp$0 = staticinvoke <StaticFieldMultiStores: int getNAC()>();
+
+        if temp$0 > 0 goto label1;
+
+        goto label2;
+
+     label1:
+        nop;
+
+        temp$1 = 666;
+
+        <StaticFieldMultiStores: int g> = temp$1;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$2 = 777;
+
+        <StaticFieldMultiStores: int g> = temp$2;
+
+     label3:
+        nop;
+
+        return;
+    }
+
+    static int getNAC()
+    {
+        int i, temp$0, temp$1;
+
+        temp$0 = 0;
+
+        i = temp$0;
+
+     label1:
+        nop;
+
+        if i < 5 goto label2;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        nop;
+
+        temp$1 = i + 1;
+
+        i = temp$1;
+
+        goto label1;
+
+     label3:
+        nop;
+
+        return i;
+    }
+
+    void <init>()
+    {
+        StaticFieldMultiStores this;
+
+        this := @this: StaticFieldMultiStores;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

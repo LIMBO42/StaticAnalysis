@@ -1,0 +1,41 @@
+public static class Interprocedural2$Y extends java.lang.Object
+{
+    int g;
+
+    int getG()
+    {
+        Interprocedural2$Y this;
+        int temp$0;
+
+        this := @this: Interprocedural2$Y;
+
+        temp$0 = this.<Interprocedural2$Y: int g>;
+
+        return temp$0;
+    }
+
+    void setG(int)
+    {
+        Interprocedural2$Y this;
+        int g;
+
+        this := @this: Interprocedural2$Y;
+
+        g := @parameter0: int;
+
+        this.<Interprocedural2$Y: int g> = g;
+
+        return;
+    }
+
+    void <init>()
+    {
+        Interprocedural2$Y this;
+
+        this := @this: Interprocedural2$Y;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

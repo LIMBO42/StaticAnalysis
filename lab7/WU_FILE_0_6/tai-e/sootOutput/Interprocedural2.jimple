@@ -1,0 +1,50 @@
+class Interprocedural2 extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        Interprocedural2$X x, temp$0;
+        int a, temp$1, b, temp$3;
+        Interprocedural2$Y y, temp$2;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = new Interprocedural2$X;
+
+        specialinvoke temp$0.<Interprocedural2$X: void <init>()>();
+
+        x = temp$0;
+
+        virtualinvoke x.<Interprocedural2$X: void setF(int)>(123);
+
+        temp$1 = virtualinvoke x.<Interprocedural2$X: int getF()>();
+
+        a = temp$1;
+
+        temp$2 = new Interprocedural2$Y;
+
+        specialinvoke temp$2.<Interprocedural2$Y: void <init>()>();
+
+        y = temp$2;
+
+        virtualinvoke y.<Interprocedural2$Y: void setG(int)>(789);
+
+        temp$3 = virtualinvoke y.<Interprocedural2$Y: int getG()>();
+
+        b = temp$3;
+
+        return;
+    }
+
+    void <init>()
+    {
+        Interprocedural2 this;
+
+        this := @this: Interprocedural2;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

@@ -1,0 +1,72 @@
+class SourceSink extends java.lang.Object
+{
+
+    static java.lang.String source()
+    {
+        java.lang.String temp$0;
+
+        temp$0 = new java.lang.String;
+
+        specialinvoke temp$0.<java.lang.String: void <init>()>();
+
+        return temp$0;
+    }
+
+    static void sink(java.lang.String)
+    {
+        java.lang.String s;
+
+        s := @parameter0: java.lang.String;
+
+        return;
+    }
+
+    static void sink(java.lang.String, int)
+    {
+        java.lang.String s;
+        int n;
+
+        s := @parameter0: java.lang.String;
+
+        n := @parameter1: int;
+
+        return;
+    }
+
+    static void sink(java.lang.String, java.lang.String)
+    {
+        java.lang.String s1, s2;
+
+        s1 := @parameter0: java.lang.String;
+
+        s2 := @parameter1: java.lang.String;
+
+        return;
+    }
+
+    static java.lang.String sourceAndSink(java.lang.String, java.lang.String)
+    {
+        java.lang.String s1, s2, temp$0;
+
+        s1 := @parameter0: java.lang.String;
+
+        s2 := @parameter1: java.lang.String;
+
+        temp$0 = new java.lang.String;
+
+        specialinvoke temp$0.<java.lang.String: void <init>()>();
+
+        return temp$0;
+    }
+
+    void <init>()
+    {
+        SourceSink this;
+
+        this := @this: SourceSink;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

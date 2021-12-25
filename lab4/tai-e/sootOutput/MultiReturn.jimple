@@ -1,0 +1,165 @@
+public class MultiReturn extends java.lang.Object
+{
+
+    boolean retDiffConst(int)
+    {
+        MultiReturn this;
+        int x, temp$0;
+        boolean temp$1, temp$2;
+
+        this := @this: MultiReturn;
+
+        x := @parameter0: int;
+
+        temp$0 = x % 2;
+
+        if temp$0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        nop;
+
+        temp$1 = 1;
+
+        return temp$1;
+
+     label2:
+        nop;
+
+        temp$2 = 0;
+
+        return temp$2;
+    }
+
+    double retDouble(int)
+    {
+        MultiReturn this;
+        int x, temp$0;
+        double temp$1, temp$2;
+
+        this := @this: MultiReturn;
+
+        x := @parameter0: int;
+
+        temp$0 = x % 2;
+
+        if temp$0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        nop;
+
+        temp$1 = 1.0;
+
+        return temp$1;
+
+     label2:
+        nop;
+
+        temp$2 = 0.0;
+
+        return temp$2;
+    }
+
+    int retX(int)
+    {
+        MultiReturn this;
+        int x, temp$0, temp$1;
+
+        this := @this: MultiReturn;
+
+        x := @parameter0: int;
+
+        temp$0 = x % 2;
+
+        if temp$0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        nop;
+
+        temp$1 = 1;
+
+        return temp$1;
+
+     label2:
+        nop;
+
+        return x;
+    }
+
+    int retUndef(int)
+    {
+        MultiReturn this;
+        int y, temp$0, temp$1;
+
+        this := @this: MultiReturn;
+
+        y := @parameter0: int;
+
+        temp$0 = y % 2;
+
+        if temp$0 == 0 goto label1;
+
+        goto label2;
+
+     label1:
+        nop;
+
+        temp$1 = 1;
+
+        return temp$1;
+
+     label2:
+        nop;
+
+        return y;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        MultiReturn mr, temp$0;
+        int x, temp$3, temp$4, y, temp$5;
+        boolean temp$1;
+        double temp$2;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = new MultiReturn;
+
+        specialinvoke temp$0.<MultiReturn: void <init>()>();
+
+        mr = temp$0;
+
+        x = 0;
+
+        temp$1 = virtualinvoke mr.<MultiReturn: boolean retDiffConst(int)>(x);
+
+        temp$2 = virtualinvoke mr.<MultiReturn: double retDouble(int)>(x);
+
+        temp$3 = 1;
+
+        x = temp$3;
+
+        temp$4 = virtualinvoke mr.<MultiReturn: int retX(int)>(x);
+
+        temp$5 = virtualinvoke mr.<MultiReturn: int retUndef(int)>(y);
+
+        return;
+    }
+
+    public void <init>()
+    {
+        MultiReturn this;
+
+        this := @this: MultiReturn;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

@@ -1,0 +1,34 @@
+class InterTaintTransfer extends java.lang.Object {
+
+    public static void main(java.lang.String[] args) {
+        java.lang.String temp$0, t1, temp$1, t2, temp$2, t3, temp$3, s, temp$4, temp$5, temp$6;
+        [0@L4] temp$0 = invokestatic <SourceSink: java.lang.String source()>();
+        [1@L4] t1 = temp$0;
+        [2@L5] temp$1 = invokestatic <SourceSink: java.lang.String source()>();
+        [3@L5] t2 = temp$1;
+        [4@L6] temp$2 = invokestatic <SourceSink: java.lang.String source()>();
+        [5@L6] t3 = temp$2;
+        [6@L7] temp$3 = new java.lang.String;
+        [7@L7] invokespecial temp$3.<java.lang.String: void <init>()>();
+        [8@L7] s = temp$3;
+        [9@L8] temp$4 = invokestatic <InterTaintTransfer: java.lang.String transfer(java.lang.String,java.lang.String)>(t1, s);
+        [10@L8] invokestatic <SourceSink: void sink(java.lang.String)>(temp$4);
+        [11@L9] temp$5 = invokestatic <InterTaintTransfer: java.lang.String transfer(java.lang.String,java.lang.String)>(t2, s);
+        [12@L9] invokestatic <SourceSink: void sink(java.lang.String)>(temp$5);
+        [13@L10] temp$6 = invokestatic <InterTaintTransfer: java.lang.String transfer(java.lang.String,java.lang.String)>(s, t3);
+        [14@L10] invokestatic <SourceSink: void sink(java.lang.String)>(temp$6);
+        [15@L10] return;
+    }
+
+    static java.lang.String transfer(java.lang.String s1, java.lang.String s2) {
+        java.lang.String temp$0;
+        [0@L13] temp$0 = invokevirtual s1.<java.lang.String: java.lang.String concat(java.lang.String)>(s2);
+        [1@L14] return temp$0;
+    }
+
+    void <init>() {
+        [0@L1] invokespecial %this.<java.lang.Object: void <init>()>();
+        [1@L1] return;
+    }
+
+}

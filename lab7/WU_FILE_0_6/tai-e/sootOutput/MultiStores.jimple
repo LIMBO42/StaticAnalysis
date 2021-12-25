@@ -1,0 +1,58 @@
+class MultiStores extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        A a, temp$0;
+        int temp$1, temp$2, temp$3, x;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = new A;
+
+        specialinvoke temp$0.<A: void <init>()>();
+
+        a = temp$0;
+
+        temp$1 = lengthof args;
+
+        if temp$1 > 0 goto label1;
+
+        goto label2;
+
+     label1:
+        nop;
+
+        temp$2 = 0;
+
+        a.<A: int f> = temp$2;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$3 = 1;
+
+        a.<A: int f> = temp$3;
+
+     label3:
+        nop;
+
+        x = a.<A: int f>;
+
+        return;
+    }
+
+    void <init>()
+    {
+        MultiStores this;
+
+        this := @this: MultiStores;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

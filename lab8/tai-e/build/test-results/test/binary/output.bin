@@ -1,0 +1,43 @@
+Tai-e starts ...
+'Writing options to output\options.yml
+0Writing analysis plan to output\tai-e-plan.yml
+WorldBuilder starts ...
+.9716 classes with 96112 methods in the world
+,WorldBuilder finishes, elapsed time: 3.96s
+class-dumper starts ...
+!Dumping 2 classes to output ...
+,class-dumper finishes, elapsed time: 0.05s
+cspta starts ...
+TaintConfig:
+	sources:
+<  <SourceSink: java.lang.String source()>(java.lang.String)
+d  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>(java.lang.String)
+
+sinks:
+.  <SourceSink: void sink(java.lang.String)>/0
+2  <SourceSink: void sink(java.lang.String,int)>/0
+?  <SourceSink: void sink(java.lang.String,java.lang.String)>/1
+T  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>/0
+
+transfers:
+Z  <java.lang.StringBuffer: java.lang.String toString()>: base -> result(java.lang.String)
+o  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>: 0 -> base(java.lang.StringBuffer)
+[  <java.lang.StringBuilder: java.lang.String toString()>: base -> result(java.lang.String)
+_  <java.lang.String: java.lang.String concat(java.lang.String)>: 0 -> result(java.lang.String)
+C  <java.lang.String: char[] toCharArray()>: base -> result(char[])
+o  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>: 0 -> base(java.lang.StringBuffer)
+G  <java.lang.String: void <init>(char[])>: 0 -> base(java.lang.String)
+b  <java.lang.String: java.lang.String concat(java.lang.String)>: base -> result(java.lang.String)
+r  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>: 0 -> base(java.lang.StringBuilder)
+r  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>: 0 -> base(java.lang.StringBuilder)
+
+<-------------- Pointer analysis statistics: --------------
+9#var pointers:                473 (insens) / 473 (sens)
+9#var points-to:               755 (insens) / 755 (sens)
+(#static field points-to:      0 (sens)
+*#instance field points-to:    110 (sens)
+(#array points-to:             0 (sens)
+7#reachable methods:           85 (insens) / 85 (sens)
+9#call graph edges:            182 (insens) / 182 (sens)
+*----------------------------------------
+WComparing taint flows with src\test\resources\pta\taint\StringAppend-expected.txt ...

@@ -1,0 +1,151 @@
+class StringList extends java.lang.Object
+{
+    private java.lang.String[] elements;
+    private int size;
+
+    void add(java.lang.String)
+    {
+        StringList this;
+        java.lang.String s;
+        int temp$0, temp$1, temp$3, temp$4, temp$5;
+        java.lang.String[] temp$2;
+
+        this := @this: StringList;
+
+        s := @parameter0: java.lang.String;
+
+        temp$0 = this.<StringList: int size>;
+
+        temp$1 = temp$0 + 1;
+
+        virtualinvoke this.<StringList: void ensureCapacity(int)>(temp$1);
+
+        temp$2 = this.<StringList: java.lang.String[] elements>;
+
+        temp$3 = this.<StringList: int size>;
+
+        temp$4 = temp$3 + 1;
+
+        this.<StringList: int size> = temp$4;
+
+        temp$5 = temp$3;
+
+        temp$2[temp$5] = s;
+
+        return;
+    }
+
+    private final void ensureCapacity(int)
+    {
+        StringList this;
+        int capacity, temp$1, temp$3, temp$4, i, temp$6, temp$8, temp$10;
+        java.lang.String[] temp$0, tmp, temp$2, temp$5, temp$7, temp$9;
+        java.lang.String temp$11;
+
+        this := @this: StringList;
+
+        capacity := @parameter0: int;
+
+        temp$0 = this.<StringList: java.lang.String[] elements>;
+
+        temp$1 = lengthof temp$0;
+
+        if capacity > temp$1 goto label1;
+
+        goto label5;
+
+     label1:
+        nop;
+
+        temp$2 = this.<StringList: java.lang.String[] elements>;
+
+        temp$3 = lengthof temp$2;
+
+        temp$4 = temp$3 * 2;
+
+        tmp = newarray (java.lang.String)[temp$4];
+
+        i = 0;
+
+     label2:
+        nop;
+
+        temp$5 = this.<StringList: java.lang.String[] elements>;
+
+        temp$6 = lengthof temp$5;
+
+        if i < temp$6 goto label3;
+
+        goto label4;
+
+     label3:
+        nop;
+
+        temp$7 = tmp;
+
+        temp$8 = i;
+
+        temp$9 = this.<StringList: java.lang.String[] elements>;
+
+        temp$10 = i;
+
+        temp$11 = temp$9[temp$10];
+
+        temp$7[temp$8] = temp$11;
+
+        nop;
+
+        goto label2;
+
+     label4:
+        nop;
+
+        this.<StringList: java.lang.String[] elements> = tmp;
+
+     label5:
+        nop;
+
+        return;
+    }
+
+    java.lang.String get(int)
+    {
+        StringList this;
+        int i, temp$1;
+        java.lang.String[] temp$0;
+        java.lang.String temp$2;
+
+        this := @this: StringList;
+
+        i := @parameter0: int;
+
+        temp$0 = this.<StringList: java.lang.String[] elements>;
+
+        temp$1 = i;
+
+        temp$2 = temp$0[temp$1];
+
+        return temp$2;
+    }
+
+    void <init>()
+    {
+        StringList this;
+        java.lang.String[] temp$0;
+        int temp$1;
+
+        this := @this: StringList;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        temp$0 = newarray (java.lang.String)[10];
+
+        this.<StringList: java.lang.String[] elements> = temp$0;
+
+        temp$1 = 0;
+
+        this.<StringList: int size> = temp$1;
+
+        return;
+    }
+}

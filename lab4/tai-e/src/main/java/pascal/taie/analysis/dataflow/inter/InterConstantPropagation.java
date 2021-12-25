@@ -122,16 +122,20 @@
 
          //TODO question: 这里对吗
          List<Var> methodParams = edge.getCallee().getIR().getParams();
-         List<RValue> useParams = edge.getSource().getUses();
+         //List<RValue> useParams = edge.getSource().getUses();
          //edge.getSource().
+         Stmt src = edge.getSource();
+
          CPFact tmpFact = new CPFact();
          /*
          if(methodParams.size() != useParams.size()){
              System.out.println("Error : params is not the same, CallEdge is wrong!");
          }*/
          //TODO 这里可能要instance of
+         //int count = useParams.size()-methodParams.size();
          for(int i = 0; i < methodParams.size(); ++i){
-             tmpFact.update(methodParams.get(i), callSiteOut.get((Var)useParams.get(i)));
+             tmpFact.update(methodParams.get(i), callSiteOut.get((Var)((Invoke)src).getInvokeExp().getArg(i)));
+             //count++;
          }
          return tmpFact;
      }
@@ -139,6 +143,7 @@
      @Override
      protected CPFact transferReturnEdge(ReturnEdge<Stmt> edge, CPFact returnOut) {
          // TODO - finish me
+         /*
          CPFact tmpFact = new CPFact();
          Stmt callStmt = edge.getCallSite();
          if(callStmt.getDef().isPresent()){
@@ -175,8 +180,24 @@
              }
          }
 
-         return tmpFact;
+         return tmpFact;*/
 
+         Stmt callsite = edge.getCallSite();
+         if(!(callsite instanceof Invoke)){
+             System.out.println("callsite not Invoke");
+             return new CPFact();
+         }
 
+         Var LHS = ((Invoke) callsite).getLValue();
+         if(LHS == null) return new CPFact();
+         CPFact result = new CPFact();
+         result.update(LHS, Value.getUndef());
+
+         edge.returnVars().forEach(returnvar -> {
+             Value current = result.get(LHS);
+             current = cp.meetValue(returnOut.get(returnvar), current);
+             result.update(LHS, current);
+         });
+         return result;
      }
  }

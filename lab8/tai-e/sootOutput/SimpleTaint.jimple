@@ -1,0 +1,65 @@
+class SimpleTaint extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        java.lang.String s1, temp$0, s2, temp$1, s3, temp$2, temp$3;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = staticinvoke <SourceSink: java.lang.String source()>();
+
+        s1 = temp$0;
+
+        staticinvoke <SourceSink: void sink(java.lang.String)>(s1);
+
+        temp$1 = staticinvoke <SourceSink: java.lang.String source()>();
+
+        s2 = temp$1;
+
+        staticinvoke <SourceSink: void sink(java.lang.String)>(s2);
+
+        if args == null goto label1;
+
+        goto label2;
+
+     label1:
+        nop;
+
+        temp$2 = s1;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$2 = s2;
+
+     label3:
+        nop;
+
+        s3 = temp$2;
+
+        staticinvoke <SourceSink: void sink(java.lang.String,int)>(s3, 0);
+
+        temp$3 = new java.lang.String;
+
+        specialinvoke temp$3.<java.lang.String: void <init>()>();
+
+        staticinvoke <SourceSink: void sink(java.lang.String,java.lang.String)>(s3, temp$3);
+
+        return;
+    }
+
+    void <init>()
+    {
+        SimpleTaint this;
+
+        this := @this: SimpleTaint;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

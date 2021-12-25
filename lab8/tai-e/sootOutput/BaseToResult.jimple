@@ -1,0 +1,40 @@
+class BaseToResult extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        java.lang.String taint, temp$0, s1, temp$1, s2, temp$2;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = staticinvoke <SourceSink: java.lang.String source()>();
+
+        taint = temp$0;
+
+        temp$1 = new java.lang.String;
+
+        specialinvoke temp$1.<java.lang.String: void <init>()>();
+
+        s1 = temp$1;
+
+        temp$2 = virtualinvoke taint.<java.lang.String: java.lang.String concat(java.lang.String)>(s1);
+
+        s2 = temp$2;
+
+        staticinvoke <SourceSink: void sink(java.lang.String)>(s2);
+
+        return;
+    }
+
+    void <init>()
+    {
+        BaseToResult this;
+
+        this := @this: BaseToResult;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

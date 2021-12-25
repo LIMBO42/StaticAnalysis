@@ -35,7 +35,7 @@ public class _1ObjSelector implements ContextSelector {
         // TODO - finish me
         //?
         //return ListContext.make(callSite.getContext());
-        return ListContext.make();
+        return callSite.getContext();
     }
 
     @Override

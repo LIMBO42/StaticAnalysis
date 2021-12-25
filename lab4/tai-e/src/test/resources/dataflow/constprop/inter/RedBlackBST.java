@@ -1,3 +1,4 @@
+// BST helper node data type
 class Node {
     int key;           // key
     int val;           // associated data

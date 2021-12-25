@@ -1,0 +1,41 @@
+class X extends java.lang.Object
+{
+    private Y y;
+
+    void setY(Y)
+    {
+        X this;
+        Y y;
+
+        this := @this: X;
+
+        y := @parameter0: Y;
+
+        this.<X: Y y> = y;
+
+        return;
+    }
+
+    Y getY()
+    {
+        X this;
+        Y temp$0;
+
+        this := @this: X;
+
+        temp$0 = this.<X: Y y>;
+
+        return temp$0;
+    }
+
+    void <init>()
+    {
+        X this;
+
+        this := @this: X;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

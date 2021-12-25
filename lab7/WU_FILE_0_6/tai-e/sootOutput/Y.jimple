@@ -1,0 +1,15 @@
+class Y extends java.lang.Object
+{
+    int f;
+
+    void <init>()
+    {
+        Y this;
+
+        this := @this: Y;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

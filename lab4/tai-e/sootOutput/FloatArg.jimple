@@ -1,0 +1,57 @@
+public class FloatArg extends java.lang.Object
+{
+
+    int foo(int, float)
+    {
+        FloatArg this;
+        int i, temp$2;
+        float f, temp$0, temp$1;
+
+        this := @this: FloatArg;
+
+        i := @parameter0: int;
+
+        f := @parameter1: float;
+
+        temp$0 = (float) i;
+
+        temp$1 = f * temp$0;
+
+        temp$2 = (int) temp$1;
+
+        return temp$2;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        int x, temp$1;
+        float f;
+        FloatArg temp$0;
+
+        args := @parameter0: java.lang.String[];
+
+        x = 1;
+
+        f = 2.0F;
+
+        temp$0 = new FloatArg;
+
+        specialinvoke temp$0.<FloatArg: void <init>()>();
+
+        temp$1 = virtualinvoke temp$0.<FloatArg: int foo(int,float)>(x, f);
+
+        return;
+    }
+
+    public void <init>()
+    {
+        FloatArg this;
+
+        this := @this: FloatArg;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

@@ -1,5 +1,9 @@
 
 这次得分比较低的原因应该是之前的逻辑混杂到了一起，导致有bug通过了之前的样例没有检查出来，这次又依赖之前的代码。
+
+是interConstantPropagation里面的transferEdge获取参数的函数写错了。
+现在已订正过来了
+
 Grade of assignments\A4\submissions\: 61.8 points
 
 Your submission correctly analyzes 85 out of 85 call sites in test cases for CHA,

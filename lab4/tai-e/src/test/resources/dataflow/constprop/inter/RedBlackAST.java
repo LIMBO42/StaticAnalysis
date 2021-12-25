@@ -1,3 +1,4 @@
+// BST helper node data type
 class Node {
     int key;           // key
     int val;           // associated data
@@ -12,6 +13,7 @@ class Node {
         this.size = size;
     }
 }
+
 public class RedBlackBST {
 
     private static final boolean RED = true;

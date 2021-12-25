@@ -1,0 +1,188 @@
+class ArrayLoops extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+
+        args := @parameter0: java.lang.String[];
+
+        staticinvoke <ArrayLoops: void loopConst()>();
+
+        staticinvoke <ArrayLoops: void loopMix()>();
+
+        staticinvoke <ArrayLoops: void loopNAC()>();
+
+        return;
+    }
+
+    static void loopConst()
+    {
+        int[] a, temp$1, temp$5;
+        int i, temp$0, temp$2, temp$3, temp$4, x, temp$6;
+
+        a = newarray (int)[5];
+
+        i = 0;
+
+     label1:
+        nop;
+
+        temp$0 = lengthof a;
+
+        if i < temp$0 goto label2;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$1 = a;
+
+        temp$2 = i;
+
+        temp$3 = 666;
+
+        temp$1[temp$2] = temp$3;
+
+        nop;
+
+        temp$4 = i + 1;
+
+        i = temp$4;
+
+        goto label1;
+
+     label3:
+        nop;
+
+        temp$5 = a;
+
+        temp$6 = 3;
+
+        x = temp$5[temp$6];
+
+        return;
+    }
+
+    static void loopMix()
+    {
+        int[] a, temp$1, temp$5, temp$8, temp$10;
+        int i, temp$0, temp$2, temp$3, temp$4, temp$6, temp$7, x, temp$9, y, temp$11;
+
+        a = newarray (int)[5];
+
+        i = 0;
+
+     label1:
+        nop;
+
+        temp$0 = lengthof a;
+
+        if i < temp$0 goto label2;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$1 = a;
+
+        temp$2 = i;
+
+        temp$3 = 666;
+
+        temp$1[temp$2] = temp$3;
+
+        nop;
+
+        temp$4 = i + 1;
+
+        i = temp$4;
+
+        goto label1;
+
+     label3:
+        nop;
+
+        temp$5 = a;
+
+        temp$6 = 4;
+
+        temp$7 = 777;
+
+        temp$5[temp$6] = temp$7;
+
+        temp$8 = a;
+
+        temp$9 = 3;
+
+        x = temp$8[temp$9];
+
+        temp$10 = a;
+
+        temp$11 = 4;
+
+        y = temp$10[temp$11];
+
+        return;
+    }
+
+    static void loopNAC()
+    {
+        int[] a, temp$1, temp$4;
+        int i, temp$0, temp$2, temp$3, x, temp$5;
+
+        a = newarray (int)[5];
+
+        i = 0;
+
+     label1:
+        nop;
+
+        temp$0 = lengthof a;
+
+        if i < temp$0 goto label2;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$1 = a;
+
+        temp$2 = i;
+
+        temp$1[temp$2] = i;
+
+        nop;
+
+        temp$3 = i + 1;
+
+        i = temp$3;
+
+        goto label1;
+
+     label3:
+        nop;
+
+        temp$4 = a;
+
+        temp$5 = 3;
+
+        x = temp$4[temp$5];
+
+        return;
+    }
+
+    void <init>()
+    {
+        ArrayLoops this;
+
+        this := @this: ArrayLoops;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}
