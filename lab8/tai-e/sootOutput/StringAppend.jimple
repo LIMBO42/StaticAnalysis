@@ -1,0 +1,117 @@
+class StringAppend extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+
+        args := @parameter0: java.lang.String[];
+
+        staticinvoke <StringAppend: void stringAdd()>();
+
+        staticinvoke <StringAppend: void stringBuffer()>();
+
+        staticinvoke <StringAppend: void stringBuilder()>();
+
+        return;
+    }
+
+    static void stringAdd()
+    {
+        java.lang.String taint, temp$0, s, temp$2;
+        java.lang.StringBuffer temp$1;
+
+        temp$0 = staticinvoke <SourceSink: java.lang.String source()>();
+
+        taint = temp$0;
+
+        temp$1 = new java.lang.StringBuffer;
+
+        specialinvoke temp$1.<java.lang.StringBuffer: void <init>()>();
+
+        virtualinvoke temp$1.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>("abc");
+
+        virtualinvoke temp$1.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>(taint);
+
+        virtualinvoke temp$1.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>("xyz");
+
+        temp$2 = virtualinvoke temp$1.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        s = temp$2;
+
+        staticinvoke <SourceSink: void sink(java.lang.String)>(s);
+
+        return;
+    }
+
+    static void stringBuffer()
+    {
+        java.lang.String taint, temp$0, s, temp$5;
+        java.lang.StringBuffer sb, temp$1, temp$2, temp$3, temp$4;
+
+        temp$0 = staticinvoke <SourceSink: java.lang.String source()>();
+
+        taint = temp$0;
+
+        temp$1 = new java.lang.StringBuffer;
+
+        specialinvoke temp$1.<java.lang.StringBuffer: void <init>()>();
+
+        sb = temp$1;
+
+        temp$2 = virtualinvoke sb.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("abc");
+
+        temp$3 = virtualinvoke sb.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>(taint);
+
+        temp$4 = virtualinvoke sb.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("xyz");
+
+        temp$5 = virtualinvoke sb.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        s = temp$5;
+
+        staticinvoke <SourceSink: void sink(java.lang.String)>(s);
+
+        return;
+    }
+
+    static void stringBuilder()
+    {
+        java.lang.String taint, temp$0, s, temp$5;
+        java.lang.StringBuilder sb, temp$1, temp$2, temp$3, temp$4;
+
+        temp$0 = staticinvoke <SourceSink: java.lang.String source()>();
+
+        taint = temp$0;
+
+        temp$1 = new java.lang.StringBuilder;
+
+        specialinvoke temp$1.<java.lang.StringBuilder: void <init>()>();
+
+        sb = temp$1;
+
+        temp$2 = virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("abc");
+
+        temp$3 = virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(taint);
+
+        temp$4 = virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("xyz");
+
+        temp$5 = virtualinvoke sb.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        s = temp$5;
+
+        staticinvoke <SourceSink: void sink(java.lang.String)>(s);
+
+        return;
+    }
+
+    void <init>()
+    {
+        StringAppend this;
+
+        this := @this: StringAppend;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

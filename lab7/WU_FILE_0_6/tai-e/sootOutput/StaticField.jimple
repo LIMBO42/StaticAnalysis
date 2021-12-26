@@ -1,0 +1,31 @@
+class StaticField extends java.lang.Object
+{
+    static int f;
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        int temp$0, x;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = 100;
+
+        <StaticField: int f> = temp$0;
+
+        x = <StaticField: int f>;
+
+        return;
+    }
+
+    void <init>()
+    {
+        StaticField this;
+
+        this := @this: StaticField;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

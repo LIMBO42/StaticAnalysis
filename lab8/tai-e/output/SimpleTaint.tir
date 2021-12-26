@@ -1,0 +1,34 @@
+class SimpleTaint extends java.lang.Object {
+
+    public static void main(java.lang.String[] args) {
+        java.lang.String temp$0, s1, temp$1, s2, temp$2, s3, temp$3;
+        int %intconst0;
+        [0@L4] temp$0 = invokestatic <SourceSink: java.lang.String source()>();
+        [1@L4] s1 = temp$0;
+        [2@L5] invokestatic <SourceSink: void sink(java.lang.String)>(s1);
+        [3@L7] temp$1 = invokestatic <SourceSink: java.lang.String source()>();
+        [4@L7] s2 = temp$1;
+        [5@L8] invokestatic <SourceSink: void sink(java.lang.String)>(s2);
+        [6@L10] if (args == %nullconst) goto 8;
+        [7@L10] goto 11;
+        [8@L10] nop;
+        [9@L10] temp$2 = s1;
+        [10@L10] goto 13;
+        [11@L10] nop;
+        [12@L10] temp$2 = s2;
+        [13@L10] nop;
+        [14@L10] s3 = temp$2;
+        [15@L11] %intconst0 = 0;
+        [16@L11] invokestatic <SourceSink: void sink(java.lang.String,int)>(s3, %intconst0);
+        [17@L13] temp$3 = new java.lang.String;
+        [18@L13] invokespecial temp$3.<java.lang.String: void <init>()>();
+        [19@L13] invokestatic <SourceSink: void sink(java.lang.String,java.lang.String)>(s3, temp$3);
+        [20@L13] return;
+    }
+
+    void <init>() {
+        [0@L1] invokespecial %this.<java.lang.Object: void <init>()>();
+        [1@L1] return;
+    }
+
+}

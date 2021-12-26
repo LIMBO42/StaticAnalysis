@@ -1,0 +1,67 @@
+class InterTaintTransfer extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        java.lang.String t1, temp$0, t2, temp$1, t3, temp$2, s, temp$3, temp$4, temp$5, temp$6;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = staticinvoke <SourceSink: java.lang.String source()>();
+
+        t1 = temp$0;
+
+        temp$1 = staticinvoke <SourceSink: java.lang.String source()>();
+
+        t2 = temp$1;
+
+        temp$2 = staticinvoke <SourceSink: java.lang.String source()>();
+
+        t3 = temp$2;
+
+        temp$3 = new java.lang.String;
+
+        specialinvoke temp$3.<java.lang.String: void <init>()>();
+
+        s = temp$3;
+
+        temp$4 = staticinvoke <InterTaintTransfer: java.lang.String transfer(java.lang.String,java.lang.String)>(t1, s);
+
+        staticinvoke <SourceSink: void sink(java.lang.String)>(temp$4);
+
+        temp$5 = staticinvoke <InterTaintTransfer: java.lang.String transfer(java.lang.String,java.lang.String)>(t2, s);
+
+        staticinvoke <SourceSink: void sink(java.lang.String)>(temp$5);
+
+        temp$6 = staticinvoke <InterTaintTransfer: java.lang.String transfer(java.lang.String,java.lang.String)>(s, t3);
+
+        staticinvoke <SourceSink: void sink(java.lang.String)>(temp$6);
+
+        return;
+    }
+
+    static java.lang.String transfer(java.lang.String, java.lang.String)
+    {
+        java.lang.String s1, s2, temp$0;
+
+        s1 := @parameter0: java.lang.String;
+
+        s2 := @parameter1: java.lang.String;
+
+        temp$0 = virtualinvoke s1.<java.lang.String: java.lang.String concat(java.lang.String)>(s2);
+
+        return temp$0;
+    }
+
+    void <init>()
+    {
+        InterTaintTransfer this;
+
+        this := @this: InterTaintTransfer;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

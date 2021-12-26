@@ -1,0 +1,33 @@
+class TaintInList extends java.lang.Object {
+
+    public static void main(java.lang.String[] args) {
+        StringList temp$0, l1, temp$3, l2;
+        java.lang.String temp$1, temp$2, s1, temp$4, temp$5, s2;
+        int %intconst0;
+        [0@L4] temp$0 = new StringList;
+        [1@L4] invokespecial temp$0.<StringList: void <init>()>();
+        [2@L4] l1 = temp$0;
+        [3@L5] temp$1 = invokestatic <SourceSink: java.lang.String source()>();
+        [4@L5] invokevirtual l1.<StringList: void add(java.lang.String)>(temp$1);
+        [5@L6] %intconst0 = 0;
+        [6@L6] temp$2 = invokevirtual l1.<StringList: java.lang.String get(int)>(%intconst0);
+        [7@L6] s1 = temp$2;
+        [8@L7] invokestatic <SourceSink: void sink(java.lang.String)>(s1);
+        [9@L9] temp$3 = new StringList;
+        [10@L9] invokespecial temp$3.<StringList: void <init>()>();
+        [11@L9] l2 = temp$3;
+        [12@L10] temp$4 = new java.lang.String;
+        [13@L10] invokespecial temp$4.<java.lang.String: void <init>()>();
+        [14@L10] invokevirtual l2.<StringList: void add(java.lang.String)>(temp$4);
+        [15@L11] temp$5 = invokevirtual l2.<StringList: java.lang.String get(int)>(%intconst0);
+        [16@L11] s2 = temp$5;
+        [17@L12] invokestatic <SourceSink: void sink(java.lang.String)>(s2);
+        [18@L12] return;
+    }
+
+    void <init>() {
+        [0@L1] invokespecial %this.<java.lang.Object: void <init>()>();
+        [1@L1] return;
+    }
+
+}

@@ -1,0 +1,16 @@
+optionsFile: null
+printHelp: false
+javaVersion: 15
+prependJVM: true
+classPath: src/test/resources/pta/taint
+mainClass: BaseToResult
+worldBuilderClass: pascal.taie.frontend.soot.SootWorldBuilder
+preBuildIR: false
+scope: app
+nativeModel: true
+dumpClasses: false
+planFile: null
+analyses:
+  class-dumper: ""
+  cspta: implicit-entries:false;action:compare;file:src\test\resources\pta\taint\BaseToResult-expected.txt;taint-config:src/test/resources/pta/taint/taint-config.yml;only-app:true
+onlyGenPlan: false

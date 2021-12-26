@@ -1,0 +1,194 @@
+public class Call extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        A a, temp$0;
+        int x, temp$1, temp$2, y, temp$3;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = new A;
+
+        specialinvoke temp$0.<A: void <init>()>();
+
+        a = temp$0;
+
+        temp$1 = virtualinvoke a.<A: int identity(int)>(100);
+
+        x = temp$1;
+
+        temp$2 = virtualinvoke a.<A: int identity(int)>(200);
+
+        x = temp$2;
+
+        temp$3 = virtualinvoke a.<A: int constant()>();
+
+        y = temp$3;
+
+        virtualinvoke a.<A: void foo(int)>(20);
+
+        staticinvoke <Call: void branch()>();
+
+        staticinvoke <Call: void multipleReturn()>();
+
+        staticinvoke <Call: void loop1()>();
+
+        return;
+    }
+
+    static void branch()
+    {
+        int x, temp$1, temp$2, y, temp$4, temp$5, z;
+        boolean temp$0, temp$3;
+
+        temp$0 = staticinvoke <Call: boolean anyBool()>();
+
+        if temp$0 == 0 goto label2;
+
+        goto label1;
+
+     label1:
+        nop;
+
+        temp$1 = 5;
+
+        x = temp$1;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$2 = staticinvoke <Call: int five()>();
+
+        x = temp$2;
+
+     label3:
+        nop;
+
+        temp$3 = staticinvoke <Call: boolean anyBool()>();
+
+        if temp$3 == 0 goto label5;
+
+        goto label4;
+
+     label4:
+        nop;
+
+        temp$4 = 10;
+
+        y = temp$4;
+
+        goto label6;
+
+     label5:
+        nop;
+
+        temp$5 = staticinvoke <Call: int five()>();
+
+        y = temp$5;
+
+     label6:
+        nop;
+
+        z = y;
+
+        return;
+    }
+
+    static void multipleReturn()
+    {
+        int x, temp$0, y, temp$1, z, temp$2;
+
+        temp$0 = staticinvoke <Call: int five()>();
+
+        x = temp$0;
+
+        temp$1 = staticinvoke <Call: int five()>();
+
+        y = temp$1;
+
+        temp$2 = x * y;
+
+        z = temp$2;
+
+        return;
+    }
+
+    static int five()
+    {
+        int temp$0;
+
+        temp$0 = 5;
+
+        return temp$0;
+    }
+
+    static boolean anyBool()
+    {
+        boolean temp$0, temp$1;
+
+        temp$0 = staticinvoke <Call: boolean getBool(boolean)>(1);
+
+        temp$1 = staticinvoke <Call: boolean getBool(boolean)>(0);
+
+        return temp$1;
+    }
+
+    static boolean getBool(boolean)
+    {
+        boolean b;
+
+        b := @parameter0: boolean;
+
+        return b;
+    }
+
+    static void loop1()
+    {
+        boolean b, temp$0;
+        int x, y, z, temp$1;
+
+        temp$0 = staticinvoke <Call: boolean anyBool()>();
+
+        b = temp$0;
+
+     label1:
+        nop;
+
+        if b == 0 goto label3;
+
+        goto label2;
+
+     label2:
+        nop;
+
+        x = y;
+
+        y = z;
+
+        temp$1 = 1;
+
+        z = temp$1;
+
+        goto label1;
+
+     label3:
+        nop;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        Call this;
+
+        this := @this: Call;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

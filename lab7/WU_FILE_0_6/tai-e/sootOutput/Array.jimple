@@ -1,0 +1,85 @@
+class Array extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        int[] a1, temp$0, temp$1, a2, temp$3, temp$6, temp$9, temp$12, temp$14;
+        int x, temp$2, temp$4, temp$5, temp$7, temp$8, temp$10, temp$11, y, temp$13, z, temp$15;
+
+        args := @parameter0: java.lang.String[];
+
+        temp$0 = newarray (int)[6];
+
+        temp$0[0] = 1;
+
+        temp$0[1] = 2;
+
+        temp$0[2] = 3;
+
+        temp$0[3] = 5;
+
+        temp$0[4] = 7;
+
+        temp$0[5] = 9;
+
+        a1 = temp$0;
+
+        temp$1 = a1;
+
+        temp$2 = 3;
+
+        x = temp$1[temp$2];
+
+        a2 = newarray (int)[3];
+
+        temp$3 = a2;
+
+        temp$4 = 0;
+
+        temp$5 = 666;
+
+        temp$3[temp$4] = temp$5;
+
+        temp$6 = a2;
+
+        temp$7 = 1;
+
+        temp$8 = 888;
+
+        temp$6[temp$7] = temp$8;
+
+        temp$9 = a2;
+
+        temp$10 = 2;
+
+        temp$11 = 999;
+
+        temp$9[temp$10] = temp$11;
+
+        temp$12 = a2;
+
+        temp$13 = 1;
+
+        y = temp$12[temp$13];
+
+        temp$14 = a2;
+
+        temp$15 = 2;
+
+        z = temp$14[temp$15];
+
+        return;
+    }
+
+    void <init>()
+    {
+        Array this;
+
+        this := @this: Array;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

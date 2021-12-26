@@ -1,0 +1,27 @@
+class OneCallTaint extends java.lang.Object {
+
+    public static void main(java.lang.String[] args) {
+        java.lang.String temp$0, s1, temp$1, s2, temp$2, ss1, temp$3, ss2;
+        [0@L3] temp$0 = new java.lang.String;
+        [1@L3] invokespecial temp$0.<java.lang.String: void <init>()>();
+        [2@L3] s1 = temp$0;
+        [3@L4] temp$1 = invokestatic <SourceSink: java.lang.String source()>();
+        [4@L4] s2 = temp$1;
+        [5@L6] temp$2 = invokestatic <OneCallTaint: java.lang.String identity(java.lang.String)>(s1);
+        [6@L6] ss1 = temp$2;
+        [7@L7] temp$3 = invokestatic <OneCallTaint: java.lang.String identity(java.lang.String)>(s2);
+        [8@L7] ss2 = temp$3;
+        [9@L9] invokestatic <SourceSink: void sink(java.lang.String)>(ss1);
+        [10@L9] return;
+    }
+
+    static java.lang.String identity(java.lang.String s) {
+        [0@L14] return s;
+    }
+
+    void <init>() {
+        [0@L1] invokespecial %this.<java.lang.Object: void <init>()>();
+        [1@L1] return;
+    }
+
+}

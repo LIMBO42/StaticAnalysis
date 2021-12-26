@@ -1,0 +1,71 @@
+class ArrayInter2 extends java.lang.Object
+{
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        int[] a;
+        int x, temp$0;
+
+        args := @parameter0: java.lang.String[];
+
+        a = newarray (int)[1];
+
+        staticinvoke <ArrayInter2: void set(int[],int,int)>(a, 0, 777);
+
+        temp$0 = staticinvoke <ArrayInter2: int get(int[],int)>(a, 0);
+
+        x = temp$0;
+
+        return;
+    }
+
+    static void set(int[], int, int)
+    {
+        int[] arr, temp$0;
+        int i, v, temp$1;
+
+        arr := @parameter0: int[];
+
+        i := @parameter1: int;
+
+        v := @parameter2: int;
+
+        temp$0 = arr;
+
+        temp$1 = i;
+
+        temp$0[temp$1] = v;
+
+        return;
+    }
+
+    static int get(int[], int)
+    {
+        int[] arr, temp$0;
+        int i, temp$1, temp$2;
+
+        arr := @parameter0: int[];
+
+        i := @parameter1: int;
+
+        temp$0 = arr;
+
+        temp$1 = i;
+
+        temp$2 = temp$0[temp$1];
+
+        return temp$2;
+    }
+
+    void <init>()
+    {
+        ArrayInter2 this;
+
+        this := @this: ArrayInter2;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

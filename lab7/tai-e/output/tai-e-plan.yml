@@ -1,0 +1,38 @@
+- id: throw
+  options:
+    exception: explicit
+    algorithm: intra
+- id: cfg
+  options:
+    exception: explicit
+    dump: false
+- id: cspta
+  options:
+    cs: 2-obj
+    merge-string-constants: false
+    merge-string-objects: false
+    merge-string-builders: false
+    merge-exception-objects: true
+    action: null
+    file: null
+    taint-config: null
+- id: cg
+  options:
+    algorithm: cspta
+    action: null
+    file: null
+- id: icfg
+  options:
+    dump: false
+- id: inter-constprop
+  options:
+    edge-refine: false
+    alias-aware: true
+    pta: cspta
+- id: process-result
+  options:
+    analyses:
+    - inter-constprop
+    action: compare
+    file: src\test\resources\dataflow\constprop\alias\Interprocedural2-expected.txt
+    log-mismatches: false

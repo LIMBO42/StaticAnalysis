@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pascal.taie.analysis.pta.TaintTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-12-26T00:41:43" hostname="LAPTOP-8VRVUC56" time="16.716">
+  <properties/>
+  <testcase name="testSimpleTaint" classname="pascal.taie.analysis.pta.TaintTest" time="3.91"/>
+  <testcase name="testTaintInList" classname="pascal.taie.analysis.pta.TaintTest" time="1.979"/>
+  <testcase name="testInterTaintTransfer" classname="pascal.taie.analysis.pta.TaintTest" time="2.071"/>
+  <testcase name="testStringAppend" classname="pascal.taie.analysis.pta.TaintTest" time="1.781"/>
+  <testcase name="testOneCallTaint" classname="pascal.taie.analysis.pta.TaintTest" time="1.507"/>
+  <testcase name="testArgToResult" classname="pascal.taie.analysis.pta.TaintTest" time="1.918"/>
+  <testcase name="testBaseToResult" classname="pascal.taie.analysis.pta.TaintTest" time="3.548"/>
+  <system-out><![CDATA[Tai-e starts ...
+Writing options to output\options.yml
+Writing analysis plan to output\tai-e-plan.yml
+WorldBuilder starts ...
+9716 classes with 96109 methods in the world
+WorldBuilder finishes, elapsed time: 3.22s
+class-dumper starts ...
+Dumping 2 classes to output ...
+class-dumper finishes, elapsed time: 0.03s
+cspta starts ...
+TaintConfig:
+sources:
+  <SourceSink: java.lang.String source()>(java.lang.String)
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>(java.lang.String)
+
+sinks:
+  <SourceSink: void sink(java.lang.String)>/0
+  <SourceSink: void sink(java.lang.String,int)>/0
+  <SourceSink: void sink(java.lang.String,java.lang.String)>/1
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>/0
+
+transfers:
+  <java.lang.String: java.lang.String concat(java.lang.String)>: base -> result(java.lang.String)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: 0 -> result(java.lang.String)
+  <java.lang.String: void <init>(char[])>: 0 -> base(java.lang.String)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuffer: java.lang.String toString()>: base -> result(java.lang.String)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.String: char[] toCharArray()>: base -> result(char[])
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuilder: java.lang.String toString()>: base -> result(java.lang.String)
+
+-------------- Pointer analysis statistics: --------------
+#var pointers:                18 (insens) / 18 (sens)
+#var points-to:               30 (insens) / 30 (sens)
+#static field points-to:      0 (sens)
+#instance field points-to:    0 (sens)
+#array points-to:             0 (sens)
+#reachable methods:           7 (insens) / 7 (sens)
+#call graph edges:            9 (insens) / 9 (sens)
+----------------------------------------
+Comparing taint flows with src\test\resources\pta\taint\SimpleTaint-expected.txt ...
+cspta finishes, elapsed time: 0.10s
+Tai-e finishes, elapsed time: 3.52s
+Tai-e starts ...
+Writing options to output\options.yml
+Writing analysis plan to output\tai-e-plan.yml
+WorldBuilder starts ...
+9717 classes with 96113 methods in the world
+WorldBuilder finishes, elapsed time: 1.92s
+class-dumper starts ...
+Dumping 3 classes to output ...
+class-dumper finishes, elapsed time: 0.02s
+cspta starts ...
+TaintConfig:
+sources:
+  <SourceSink: java.lang.String source()>(java.lang.String)
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>(java.lang.String)
+
+sinks:
+  <SourceSink: void sink(java.lang.String)>/0
+  <SourceSink: void sink(java.lang.String,int)>/0
+  <SourceSink: void sink(java.lang.String,java.lang.String)>/1
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>/0
+
+transfers:
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.String: char[] toCharArray()>: base -> result(char[])
+  <java.lang.String: java.lang.String concat(java.lang.String)>: base -> result(java.lang.String)
+  <java.lang.String: void <init>(char[])>: 0 -> base(java.lang.String)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: 0 -> result(java.lang.String)
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuilder: java.lang.String toString()>: base -> result(java.lang.String)
+  <java.lang.StringBuffer: java.lang.String toString()>: base -> result(java.lang.String)
+
+-------------- Pointer analysis statistics: --------------
+#var pointers:                39 (insens) / 67 (sens)
+#var points-to:               54 (insens) / 68 (sens)
+#static field points-to:      0 (sens)
+#instance field points-to:    4 (sens)
+#array points-to:             6 (sens)
+#reachable methods:           9 (insens) / 17 (sens)
+#call graph edges:            14 (insens) / 17 (sens)
+----------------------------------------
+Comparing taint flows with src\test\resources\pta\taint\TaintInList-expected.txt ...
+cspta finishes, elapsed time: 0.03s
+Tai-e finishes, elapsed time: 1.98s
+Tai-e starts ...
+Writing options to output\options.yml
+Writing analysis plan to output\tai-e-plan.yml
+WorldBuilder starts ...
+9716 classes with 96110 methods in the world
+WorldBuilder finishes, elapsed time: 1.84s
+class-dumper starts ...
+Dumping 2 classes to output ...
+class-dumper finishes, elapsed time: 0.01s
+cspta starts ...
+TaintConfig:
+sources:
+  <SourceSink: java.lang.String source()>(java.lang.String)
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>(java.lang.String)
+
+sinks:
+  <SourceSink: void sink(java.lang.String)>/0
+  <SourceSink: void sink(java.lang.String,int)>/0
+  <SourceSink: void sink(java.lang.String,java.lang.String)>/1
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>/0
+
+transfers:
+  <java.lang.String: char[] toCharArray()>: base -> result(char[])
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuffer: java.lang.String toString()>: base -> result(java.lang.String)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: 0 -> result(java.lang.String)
+  <java.lang.String: void <init>(char[])>: 0 -> base(java.lang.String)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: base -> result(java.lang.String)
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.StringBuilder: java.lang.String toString()>: base -> result(java.lang.String)
+
+-------------- Pointer analysis statistics: --------------
+#var pointers:                494 (insens) / 1534 (sens)
+#var points-to:               514 (insens) / 1556 (sens)
+#static field points-to:      0 (sens)
+#instance field points-to:    314 (sens)
+#array points-to:             0 (sens)
+#reachable methods:           89 (insens) / 306 (sens)
+#call graph edges:            182 (insens) / 540 (sens)
+----------------------------------------
+Comparing taint flows with src\test\resources\pta\taint\InterTaintTransfer-expected.txt ...
+cspta finishes, elapsed time: 0.20s
+Tai-e finishes, elapsed time: 2.07s
+Tai-e starts ...
+Writing options to output\options.yml
+Writing analysis plan to output\tai-e-plan.yml
+WorldBuilder starts ...
+9716 classes with 96112 methods in the world
+WorldBuilder finishes, elapsed time: 1.68s
+class-dumper starts ...
+Dumping 2 classes to output ...
+class-dumper finishes, elapsed time: 0.01s
+cspta starts ...
+TaintConfig:
+sources:
+  <SourceSink: java.lang.String source()>(java.lang.String)
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>(java.lang.String)
+
+sinks:
+  <SourceSink: void sink(java.lang.String)>/0
+  <SourceSink: void sink(java.lang.String,int)>/0
+  <SourceSink: void sink(java.lang.String,java.lang.String)>/1
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>/0
+
+transfers:
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.String: char[] toCharArray()>: base -> result(char[])
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuilder: java.lang.String toString()>: base -> result(java.lang.String)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: base -> result(java.lang.String)
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: 0 -> result(java.lang.String)
+  <java.lang.StringBuffer: java.lang.String toString()>: base -> result(java.lang.String)
+  <java.lang.String: void <init>(char[])>: 0 -> base(java.lang.String)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>: 0 -> base(java.lang.StringBuilder)
+
+-------------- Pointer analysis statistics: --------------
+#var pointers:                473 (insens) / 473 (sens)
+#var points-to:               764 (insens) / 764 (sens)
+#static field points-to:      0 (sens)
+#instance field points-to:    112 (sens)
+#array points-to:             0 (sens)
+#reachable methods:           85 (insens) / 85 (sens)
+#call graph edges:            183 (insens) / 183 (sens)
+----------------------------------------
+Comparing taint flows with src\test\resources\pta\taint\StringAppend-expected.txt ...
+cspta finishes, elapsed time: 0.08s
+Tai-e finishes, elapsed time: 1.78s
+Tai-e starts ...
+Writing options to output\options.yml
+Writing analysis plan to output\tai-e-plan.yml
+WorldBuilder starts ...
+9716 classes with 96110 methods in the world
+WorldBuilder finishes, elapsed time: 1.47s
+class-dumper starts ...
+Dumping 2 classes to output ...
+class-dumper finishes, elapsed time: 0.00s
+cspta starts ...
+TaintConfig:
+sources:
+  <SourceSink: java.lang.String source()>(java.lang.String)
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>(java.lang.String)
+
+sinks:
+  <SourceSink: void sink(java.lang.String)>/0
+  <SourceSink: void sink(java.lang.String,int)>/0
+  <SourceSink: void sink(java.lang.String,java.lang.String)>/1
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>/0
+
+transfers:
+  <java.lang.String: java.lang.String concat(java.lang.String)>: 0 -> result(java.lang.String)
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuffer: java.lang.String toString()>: base -> result(java.lang.String)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: base -> result(java.lang.String)
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.String: void <init>(char[])>: 0 -> base(java.lang.String)
+  <java.lang.String: char[] toCharArray()>: base -> result(char[])
+  <java.lang.StringBuilder: java.lang.String toString()>: base -> result(java.lang.String)
+
+-------------- Pointer analysis statistics: --------------
+#var pointers:                15 (insens) / 19 (sens)
+#var points-to:               21 (insens) / 21 (sens)
+#static field points-to:      0 (sens)
+#instance field points-to:    0 (sens)
+#array points-to:             0 (sens)
+#reachable methods:           6 (insens) / 8 (sens)
+#call graph edges:            7 (insens) / 8 (sens)
+----------------------------------------
+Comparing taint flows with src\test\resources\pta\taint\OneCallTaint-expected.txt ...
+cspta finishes, elapsed time: 0.01s
+Tai-e finishes, elapsed time: 1.51s
+Tai-e starts ...
+Writing options to output\options.yml
+Writing analysis plan to output\tai-e-plan.yml
+WorldBuilder starts ...
+9716 classes with 96109 methods in the world
+WorldBuilder finishes, elapsed time: 1.84s
+class-dumper starts ...
+Dumping 2 classes to output ...
+class-dumper finishes, elapsed time: 0.00s
+cspta starts ...
+TaintConfig:
+sources:
+  <SourceSink: java.lang.String source()>(java.lang.String)
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>(java.lang.String)
+
+sinks:
+  <SourceSink: void sink(java.lang.String)>/0
+  <SourceSink: void sink(java.lang.String,int)>/0
+  <SourceSink: void sink(java.lang.String,java.lang.String)>/1
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>/0
+
+transfers:
+  <java.lang.StringBuffer: java.lang.String toString()>: base -> result(java.lang.String)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: 0 -> result(java.lang.String)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: base -> result(java.lang.String)
+  <java.lang.String: char[] toCharArray()>: base -> result(char[])
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuilder: java.lang.String toString()>: base -> result(java.lang.String)
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.String: void <init>(char[])>: 0 -> base(java.lang.String)
+
+-------------- Pointer analysis statistics: --------------
+#var pointers:                486 (insens) / 486 (sens)
+#var points-to:               695 (insens) / 695 (sens)
+#static field points-to:      0 (sens)
+#instance field points-to:    114 (sens)
+#array points-to:             0 (sens)
+#reachable methods:           88 (insens) / 88 (sens)
+#call graph edges:            175 (insens) / 175 (sens)
+----------------------------------------
+Comparing taint flows with src\test\resources\pta\taint\ArgToResult-expected.txt ...
+cspta finishes, elapsed time: 0.06s
+Tai-e finishes, elapsed time: 1.92s
+Tai-e starts ...
+Writing options to output\options.yml
+Writing analysis plan to output\tai-e-plan.yml
+WorldBuilder starts ...
+9716 classes with 96109 methods in the world
+WorldBuilder finishes, elapsed time: 3.46s
+class-dumper starts ...
+Dumping 2 classes to output ...
+class-dumper finishes, elapsed time: 0.00s
+cspta starts ...
+TaintConfig:
+sources:
+  <SourceSink: java.lang.String source()>(java.lang.String)
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>(java.lang.String)
+
+sinks:
+  <SourceSink: void sink(java.lang.String)>/0
+  <SourceSink: void sink(java.lang.String,int)>/0
+  <SourceSink: void sink(java.lang.String,java.lang.String)>/1
+  <SourceSink: java.lang.String sourceAndSink(java.lang.String,java.lang.String)>/0
+
+transfers:
+  <java.lang.String: java.lang.String concat(java.lang.String)>: base -> result(java.lang.String)
+  <java.lang.String: java.lang.String concat(java.lang.String)>: 0 -> result(java.lang.String)
+  <java.lang.String: char[] toCharArray()>: base -> result(char[])
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.StringBuilder: java.lang.String toString()>: base -> result(java.lang.String)
+  <java.lang.String: void <init>(char[])>: 0 -> base(java.lang.String)
+  <java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>: 0 -> base(java.lang.StringBuffer)
+  <java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>: 0 -> base(java.lang.StringBuilder)
+  <java.lang.StringBuffer: java.lang.String toString()>: base -> result(java.lang.String)
+
+-------------- Pointer analysis statistics: --------------
+#var pointers:                486 (insens) / 486 (sens)
+#var points-to:               692 (insens) / 692 (sens)
+#static field points-to:      0 (sens)
+#instance field points-to:    114 (sens)
+#array points-to:             0 (sens)
+#reachable methods:           88 (insens) / 88 (sens)
+#call graph edges:            175 (insens) / 175 (sens)
+----------------------------------------
+Comparing taint flows with src\test\resources\pta\taint\BaseToResult-expected.txt ...
+cspta finishes, elapsed time: 0.07s
+Tai-e finishes, elapsed time: 3.55s
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

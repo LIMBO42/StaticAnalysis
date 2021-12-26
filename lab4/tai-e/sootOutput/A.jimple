@@ -1,0 +1,84 @@
+class A extends java.lang.Object
+{
+
+    void foo(int)
+    {
+        A this;
+        int p, q, temp$0, x, temp$1;
+
+        this := @this: A;
+
+        p := @parameter0: int;
+
+        temp$0 = virtualinvoke this.<A: int ten()>();
+
+        q = temp$0;
+
+        temp$1 = p;
+
+        x = temp$1 + q;
+
+        virtualinvoke this.<A: void use(int)>(x);
+
+        return;
+    }
+
+    int ten()
+    {
+        A this;
+        int temp$0;
+
+        this := @this: A;
+
+        temp$0 = 10;
+
+        return temp$0;
+    }
+
+    void use(int)
+    {
+        A this;
+        int x;
+
+        this := @this: A;
+
+        x := @parameter0: int;
+
+        return;
+    }
+
+    int identity(int)
+    {
+        A this;
+        int x;
+
+        this := @this: A;
+
+        x := @parameter0: int;
+
+        return x;
+    }
+
+    int constant()
+    {
+        A this;
+        int temp$0;
+
+        this := @this: A;
+
+        temp$0 = 123;
+
+        return temp$0;
+    }
+
+    void <init>()
+    {
+        A this;
+
+        this := @this: A;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}
