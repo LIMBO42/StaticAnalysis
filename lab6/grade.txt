@@ -1,0 +1,5 @@
+Grade of assignments\A6\submissions\: 100.0 points
+
+Your submission correctly analyzes 816 out of 816 pointers in test cases.
+
+Congratulations!

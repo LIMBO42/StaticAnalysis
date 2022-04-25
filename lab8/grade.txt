@@ -1,0 +1,31 @@
+Grade of assignments\A8\.zip: 96.6 points
+
+There are 29 taint flows in all test cases
+Your submission correctly detects 28 taint flows
+#false negatives: 1
+#false positives: 0
+
+-------------------- Error Messages --------------------
+Source code of InstanceSourceSink.java, for which your analysis failed:
+class InstanceSourceSink {
+
+public static void main(String args[]) {
+InstanceSourceSink source = new InstanceSourceSink();
+String taint = source.instanceSource();
+InstanceSourceSink sink = new InstanceSourceSink();
+sink.instanceSink(taint);
+}
+
+public String instanceSource() {
+return new String();
+}
+
+public void instanceSink(String s) {
+
+}
+
+}
+
+------ Failures on ------
+False negative: TaintFlow{<InstanceSourceSink: void main(java.lang.String[])>[3@L5] temp$1 = invokevirtual source.<InstanceSourceSink: java.lang.String instanceSource()>(); -> <InstanceSourceSink: void main(java.lang.String[])>[8@L7] invokevirtual sink.<InstanceSourceSink: void instanceSink(java.lang.String)>(taint);/0}
+==================================================
